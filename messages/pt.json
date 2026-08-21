@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "brand": "Savio Soares",
+    "menu": "Menu"
+  },
+  "menu": {
+    "close": "Fechar menu",
+    "latest": "Projetos recentes",
+    "archive": "Arquivo",
+    "about": "Sobre",
+    "email": "Email",
+    "footnote": "Eu que fiz :]"
+  },
+  "projects": {
+    "title": "Projetos",
+    "cue": "Ver projetos",
+    "prev": "Projeto anterior",
+    "next": "Próximo projeto",
+    "tags": [
+      "Epidemiologia",
+      "Vigilância popular",
+      "Territorialização",
+      "Eficiência em gestão em saúde"
+    ],
+    "detail": {
+      "close": "Fechar projeto",
+      "role": "Função",
+      "client": "Instituição",
+      "year": "Ano",
+      "link": "Ver projeto"
+    },
+    "items": {
+      "mapa-epidemiologico": {
+        "title": "Mapa Epidemiológico Urbano",
+        "category": "Data Viz",
+        "role": "Epidemiologista e desenvolvedor",
+        "org": "Secretaria Municipal de Saúde de Palmas",
+        "summary": "A cidade inteira em uma camada só, do quarteirão à região de saúde.",
+        "body": [
+          "Os dados de notificação chegavam agregados por unidade de saúde, o que escondia exatamente o que a gestão precisava enxergar: onde as pessoas adoecem, e não onde elas conseguem ser atendidas. O mapa reagrega o mesmo dado por setor censitário e o cruza com a malha das equipes de Atenção Primária.",
+          "O resultado é uma leitura territorial que sustenta decisão — priorização de visita domiciliar, redesenho de área de abrangência e alocação de agentes comunitários — em vez de um painel que apenas confirma o já sabido."
+        ]
+      },
+      "acesso-saude-bucal": {
+        "title": "Acesso à Saúde Bucal",
+        "category": "Case Study",
+        "role": "Pesquisador principal",
+        "org": "PPGSC / UnB",
+        "summary": "Fila de espera não é um número: é uma distância multiplicada por uma renda.",
+        "body": [
+          "O estudo acompanhou a demanda por atendimento odontológico na rede municipal e comparou tempo de espera declarado com tempo real de agendamento, por faixa de renda e por distância até a unidade de referência.",
+          "A separação entre acesso formal e acesso efetivo apareceu com clareza suficiente para virar recomendação: a barreira dominante não era a oferta de cadeiras, era o custo de deslocamento em horário de trabalho."
+        ]
+      },
+      "app-triagem-comunitaria": {
+        "title": "App de Triagem Comunitária",
+        "category": "Product Design",
+        "role": "Design de produto e front-end",
+        "org": "Coordenação de Sistemas em Saúde",
+        "summary": "Uma ferramenta de triagem que funciona na porta da casa, sem sinal.",
+        "body": [
+          "Agentes comunitários registravam a visita em papel e redigitavam à noite, o que produzia atraso de dias e uma taxa alta de erro de transcrição. O aplicativo assume o campo como ambiente hostil: offline por padrão, formulário curto, sincronização quando a rede voltar.",
+          "O ganho não foi a digitalização em si, foi o encurtamento do ciclo entre observar um risco na casa e conseguir agir sobre ele na semana seguinte."
+        ]
+      },
+      "dashboard-vigilancia": {
+        "title": "Painel de Vigilância Sanitária",
+        "category": "Research",
+        "role": "Analista de dados",
+        "org": "Secretaria Municipal de Saúde de Palmas",
+        "summary": "Menos indicadores, melhor escolhidos, atualizados sozinhos.",
+        "body": [
+          "O painel anterior tinha 40 indicadores e era atualizado manualmente uma vez por mês — o que na prática significava que ninguém o usava para decidir nada. A revisão cortou o conjunto para os que respondem a uma pergunta operacional real e automatizou a carga.",
+          "A parte difícil foi política, não técnica: acordar com cada área qual indicador ela abre mão de ver todo dia em troca de ver o seu confiável e atualizado."
+        ]
+      },
+      "podcast-saude-coletiva": {
+        "title": "Podcast Saúde Coletiva",
+        "category": "Media",
+        "role": "Idealização e apresentação",
+        "org": "Projeto independente",
+        "summary": "Conversas longas sobre um sistema que só cabe em conversa longa.",
+        "body": [
+          "Série de episódios com pesquisadores, gestores e trabalhadores da ponta, gravada sem roteiro fechado e editada para preservar a hesitação — que costuma ser a parte mais honesta da resposta.",
+          "O público acabou sendo majoritariamente estudante de graduação, o que redirecionou a pauta para o que a formação não cobre: financiamento, judicialização e a rotina administrativa de quem faz o SUS funcionar."
+        ]
+      },
+      "campanha-vacinacao": {
+        "title": "Campanha de Vacinação Infantil",
+        "category": "Case Study",
+        "role": "Coordenação de dados",
+        "org": "Secretaria Municipal de Saúde de Palmas",
+        "summary": "A cobertura subiu quando paramos de falar com a cidade inteira.",
+        "body": [
+          "A campanha foi desenhada a partir do mapa de bolsões de baixa cobertura em vez do calendário padrão: mesma verba, distribuição diferente, com busca ativa concentrada nas quadras que puxavam a média para baixo.",
+          "Documentar o desenho importou tanto quanto executá-lo — sem o registro, o ano seguinte recomeçaria do modelo genérico."
+        ]
+      },
+      "atlas-determinantes": {
+        "title": "Atlas de Determinantes Sociais",
+        "category": "Data Viz",
+        "role": "Pesquisador e desenvolvedor",
+        "org": "PPGSC / UnB",
+        "summary": "Renda, saneamento e escolaridade lidos na mesma escala do desfecho em saúde.",
+        "body": [
+          "O atlas reúne indicadores socioeconômicos e ambientais na mesma unidade territorial usada pelos dados de saúde, o que permite sobrepor causa provável e desfecho observado sem o malabarismo habitual de compatibilização de bases.",
+          "É deliberadamente descritivo: a ferramenta serve para formular hipótese e defender prioridade orçamentária, não para afirmar causalidade."
+        ]
+      },
+      "coorte-longitudinal": {
+        "title": "Coorte Longitudinal em Periodontia",
+        "category": "Research",
+        "role": "Pesquisador",
+        "org": "PPGSC / UnB",
+        "summary": "Cinco anos de acompanhamento para separar efeito de tratamento de efeito de idade.",
+        "body": [
+          "A coorte acompanha pacientes adultos com doença periodontal na rede pública, com medidas clínicas repetidas e registro de adesão ao acompanhamento.",
+          "O desenho longitudinal foi a única forma de responder à pergunta que interessava à gestão: quanto do ganho clínico se sustenta depois que o paciente sai do protocolo intensivo."
+        ]
+      },
+      "guia-territorial-aps": {
+        "title": "Guia Territorial da APS",
+        "category": "Editorial",
+        "role": "Autoria e edição",
+        "org": "Coordenação de Sistemas em Saúde",
+        "summary": "Um manual de territorialização que cabe no bolso do jaleco.",
+        "body": [
+          "O material existente sobre territorialização era acadêmico demais para a rotina da equipe e vago demais para virar tarefa. O guia reescreve o processo como sequência de passos verificáveis, com exemplos tirados das próprias unidades do município.",
+          "Formato e linguagem foram decisões de projeto: texto curto, uma ideia por página, e nenhuma sigla sem expansão na primeira ocorrência."
+        ]
+      },
+      "modelo-preditivo-carie": {
+        "title": "Modelo Preditivo de Cárie Infantil",
+        "category": "Machine Learning",
+        "role": "Modelagem e validação",
+        "org": "PPGSC / UnB",
+        "summary": "Prever risco é fácil; prever de um jeito que a equipe consiga usar, não.",
+        "body": [
+          "O modelo estima risco de cárie em pré-escolares a partir de variáveis já coletadas na rotina da Atenção Primária — sem exigir novo instrumento de coleta, que é o que costuma inviabilizar esse tipo de ferramenta.",
+          "A avaliação priorizou calibração e interpretabilidade sobre acurácia bruta: um escore que a equipe não consegue explicar à família não muda conduta nenhuma."
+        ]
+      },
+      "observatorio-agua": {
+        "title": "Observatório da Fluoretação",
+        "category": "Data Viz",
+        "role": "Análise e desenvolvimento",
+        "org": "Projeto independente",
+        "summary": "Monitoramento público e contínuo do teor de flúor na água distribuída.",
+        "body": [
+          "Os dados de heterocontrole existiam, mas dispersos em relatórios em PDF que ninguém consolidava. O observatório os reúne em série histórica por ponto de coleta e sinaliza quando o teor sai da faixa recomendada.",
+          "A transparência é o ponto: o valor da fluoretação depende de constância, e constância só se cobra quando é visível."
+        ]
+      },
+      "serie-formacao-acs": {
+        "title": "Série de Formação para ACS",
+        "category": "Media",
+        "role": "Conteúdo e produção",
+        "org": "Secretaria Municipal de Saúde de Palmas",
+        "summary": "Formação continuada em episódios curtos, feita para ser vista entre visitas.",
+        "body": [
+          "A série cobre os temas que mais geravam dúvida no campo — registro de visita, sinais de alerta e uso do prontuário eletrônico — em vídeos de poucos minutos gravados nas próprias unidades.",
+          "Manter os cenários e os rostos reais do município foi decisão consciente: material genérico de formação tende a ser assistido uma vez e esquecido."
+        ]
+      }
+    }
+  },
+  "hero": {
+    "age": "28 anos",
+    "location": "Palmas - TO",
+    "srTitle": "Savio Soares — epidemiologia e saúde coletiva",
+    "education": {
+      "label": "Formação",
+      "primary": "Cirurgião-dentista, epidemiologista",
+      "secondary": "Mestrando em Saúde Coletiva (PPGSC/UnB)"
+    },
+    "work": {
+      "label": "Atuação",
+      "primary": "Servidor público — Coordenação de Sistemas em Saúde",
+      "secondary": "Secretaria Municipal de Saúde de Palmas"
+    },
+    "languages": {
+      "label": "Idiomas",
+      "items": [
+        { "name": "Português", "level": "Fluente" },
+        { "name": "Inglês", "level": "Avançado (C1)" },
+        { "name": "Español", "level": "Intermediário (B1)" }
+      ]
+    }
+  },
+  "stack": {
+    "title": "Desenvolvimento e ciências de dados",
+    "label": "Stack",
+    "frontend": "Front-end web · TypeScript, Tailwind, HTML",
+    "python": "Python · FastAPI / Django",
+    "node": "Node",
+    "database": "Bancos de dados (PostgreSQL)",
+    "ai": "AI agents",
+    "mobile": "Mobile (React Native), contra minha vontade"
+  },
+  "social": {
+    "lattes": "Lattes",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  }
+}

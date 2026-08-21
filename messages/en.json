@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "brand": "Savio Soares",
+    "menu": "Menu"
+  },
+  "menu": {
+    "close": "Close menu",
+    "latest": "Latest projects",
+    "archive": "Archive",
+    "about": "About",
+    "email": "Email",
+    "footnote": "Self made :]"
+  },
+  "projects": {
+    "title": "Projects",
+    "cue": "See projects",
+    "prev": "Previous project",
+    "next": "Next project",
+    "tags": [
+      "Epidemiology",
+      "Community surveillance",
+      "Territorialization",
+      "Efficiency in health management"
+    ],
+    "detail": {
+      "close": "Close project",
+      "role": "Role",
+      "client": "Institution",
+      "year": "Year",
+      "link": "Live link"
+    },
+    "items": {
+      "mapa-epidemiologico": {
+        "title": "Urban Epidemiological Map",
+        "category": "Data Viz",
+        "role": "Epidemiologist and developer",
+        "org": "Palmas Municipal Health Department",
+        "summary": "The whole city in one layer, from the block to the health region.",
+        "body": [
+          "Notification data arrived aggregated by health facility, which hid exactly what management needed to see: where people fall ill, not where they manage to get seen. The map re-aggregates the same data by census tract and crosses it with the Primary Care team grid.",
+          "The result is a territorial reading that supports decisions — home-visit prioritisation, catchment-area redesign, community health worker allocation — rather than a dashboard that only confirms what was already known."
+        ]
+      },
+      "acesso-saude-bucal": {
+        "title": "Access to Oral Health Care",
+        "category": "Case Study",
+        "role": "Lead researcher",
+        "org": "PPGSC / University of Brasília",
+        "summary": "A waiting list is not a number: it is a distance multiplied by an income.",
+        "body": [
+          "The study followed demand for dental care in the municipal network and compared self-reported waiting time with actual scheduling time, broken down by income bracket and by distance to the referral clinic.",
+          "The gap between formal access and effective access came through clearly enough to become a recommendation: the dominant barrier was not the supply of dental chairs, it was the cost of travelling during working hours."
+        ]
+      },
+      "app-triagem-comunitaria": {
+        "title": "Community Triage App",
+        "category": "Product Design",
+        "role": "Product design and front-end",
+        "org": "Health Systems Coordination",
+        "summary": "A triage tool that works at the front door, with no signal.",
+        "body": [
+          "Community health workers recorded visits on paper and retyped them at night, producing days of delay and a high transcription error rate. The app treats the field as a hostile environment: offline by default, a short form, and sync whenever the network returns.",
+          "The gain was not digitisation itself — it was shortening the cycle between spotting a risk in a household and being able to act on it the following week."
+        ]
+      },
+      "dashboard-vigilancia": {
+        "title": "Health Surveillance Dashboard",
+        "category": "Research",
+        "role": "Data analyst",
+        "org": "Palmas Municipal Health Department",
+        "summary": "Fewer indicators, better chosen, updating on their own.",
+        "body": [
+          "The previous dashboard carried 40 indicators and was refreshed by hand once a month — which in practice meant nobody used it to decide anything. The revision cut the set down to those answering a real operational question, and automated the load.",
+          "The hard part was political rather than technical: agreeing with each department which indicator it gives up seeing daily in exchange for seeing its own reliably and on time."
+        ]
+      },
+      "podcast-saude-coletiva": {
+        "title": "Collective Health Podcast",
+        "category": "Media",
+        "role": "Creator and host",
+        "org": "Independent project",
+        "summary": "Long conversations about a system that only fits in long conversations.",
+        "body": [
+          "A series of episodes with researchers, managers and frontline workers, recorded without a closed script and edited to keep the hesitation — usually the most honest part of the answer.",
+          "The audience turned out to be mostly undergraduates, which redirected the agenda toward what training does not cover: financing, litigation, and the administrative routine of the people who keep the public health system running."
+        ]
+      },
+      "campanha-vacinacao": {
+        "title": "Childhood Immunisation Campaign",
+        "category": "Case Study",
+        "role": "Data coordination",
+        "org": "Palmas Municipal Health Department",
+        "summary": "Coverage rose once we stopped addressing the entire city.",
+        "body": [
+          "The campaign was designed from the map of low-coverage pockets rather than from the standard calendar: same budget, different distribution, with active case-finding concentrated on the blocks dragging the average down.",
+          "Documenting the design mattered as much as running it — without the record, the following year would have restarted from the generic model."
+        ]
+      },
+      "atlas-determinantes": {
+        "title": "Atlas of Social Determinants",
+        "category": "Data Viz",
+        "role": "Researcher and developer",
+        "org": "PPGSC / University of Brasília",
+        "summary": "Income, sanitation and schooling read at the same scale as the health outcome.",
+        "body": [
+          "The atlas gathers socioeconomic and environmental indicators into the same territorial unit the health data uses, which makes it possible to overlay probable cause and observed outcome without the usual contortions of reconciling datasets.",
+          "It is deliberately descriptive: the tool is for forming hypotheses and defending budget priorities, not for asserting causality."
+        ]
+      },
+      "coorte-longitudinal": {
+        "title": "Longitudinal Periodontal Cohort",
+        "category": "Research",
+        "role": "Researcher",
+        "org": "PPGSC / University of Brasília",
+        "summary": "Five years of follow-up to separate treatment effect from ageing.",
+        "body": [
+          "The cohort follows adult patients with periodontal disease in the public network, with repeated clinical measurements and a record of follow-up adherence.",
+          "The longitudinal design was the only way to answer the question management cared about: how much of the clinical gain holds once the patient leaves the intensive protocol."
+        ]
+      },
+      "guia-territorial-aps": {
+        "title": "Primary Care Territorial Guide",
+        "category": "Editorial",
+        "role": "Author and editor",
+        "org": "Health Systems Coordination",
+        "summary": "A territorialisation manual that fits in a lab-coat pocket.",
+        "body": [
+          "Existing material on territorialisation was too academic for the team's routine and too vague to become a task. The guide rewrites the process as a sequence of verifiable steps, with examples drawn from the municipality's own clinics.",
+          "Format and language were design decisions: short text, one idea per page, and no acronym without its expansion at first use."
+        ]
+      },
+      "modelo-preditivo-carie": {
+        "title": "Childhood Caries Risk Model",
+        "category": "Machine Learning",
+        "role": "Modelling and validation",
+        "org": "PPGSC / University of Brasília",
+        "summary": "Predicting risk is easy; predicting it in a way the team can act on is not.",
+        "body": [
+          "The model estimates caries risk in preschool children from variables already collected in Primary Care routine — requiring no new data collection instrument, which is what usually kills tools of this kind.",
+          "Evaluation prioritised calibration and interpretability over raw accuracy: a score the team cannot explain to a family changes no clinical behaviour at all."
+        ]
+      },
+      "observatorio-agua": {
+        "title": "Water Fluoridation Observatory",
+        "category": "Data Viz",
+        "role": "Analysis and development",
+        "org": "Independent project",
+        "summary": "Public, continuous monitoring of fluoride levels in the distributed water.",
+        "body": [
+          "The external control data existed, but scattered across PDF reports nobody consolidated. The observatory pulls them into a time series per sampling point and flags when levels fall outside the recommended range.",
+          "Transparency is the point: the value of fluoridation depends on consistency, and consistency can only be demanded when it is visible."
+        ]
+      },
+      "serie-formacao-acs": {
+        "title": "Training Series for Health Workers",
+        "category": "Media",
+        "role": "Content and production",
+        "org": "Palmas Municipal Health Department",
+        "summary": "Continuing education in short episodes, made to be watched between visits.",
+        "body": [
+          "The series covers the topics that raised the most questions in the field — visit records, warning signs, and use of the electronic health record — in videos of a few minutes filmed in the clinics themselves.",
+          "Keeping the municipality's real settings and faces was a deliberate choice: generic training material tends to be watched once and forgotten."
+        ]
+      }
+    }
+  },
+  "hero": {
+    "age": "28",
+    "location": "Palmas - TO, Brazil",
+    "srTitle": "Savio Soares — epidemiology and collective health",
+    "education": {
+      "label": "Education",
+      "primary": "Dentist, epidemiologist",
+      "secondary": "MSc candidate in Collective Health (PPGSC/UnB)"
+    },
+    "work": {
+      "label": "Practice",
+      "primary": "Civil servant — Health Systems Coordination",
+      "secondary": "Palmas Municipal Health Department"
+    },
+    "languages": {
+      "label": "Languages",
+      "items": [
+        { "name": "Portuguese", "level": "Fluent" },
+        { "name": "English", "level": "Advanced (C1)" },
+        { "name": "Spanish", "level": "Intermediate (B1)" }
+      ]
+    }
+  },
+  "stack": {
+    "title": "Development and data science",
+    "label": "Stack",
+    "frontend": "Front-end web · TypeScript, Tailwind, HTML",
+    "python": "Python · FastAPI / Django",
+    "node": "Node",
+    "database": "Databases (PostgreSQL)",
+    "ai": "AI agents",
+    "mobile": "Mobile (React Native), against my will"
+  },
+  "social": {
+    "lattes": "Lattes",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  }
+}
