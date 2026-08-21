@@ -1,0 +1,460 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — a single ~215° blue hue across the whole ramp. Each step keeps
+     the HSL lightness of the neutral palette it replaced, so every contrast
+     pair is unchanged; only saturation was introduced. */
+  --color-obsidian: #05080d;
+  --color-onyx: #030507;
+  --color-carbon: #0c131d;
+  --color-graphite: #131d2c;
+  --color-slate: #213045;
+  --color-smoke: #374962;
+  --color-ash: #50627c;
+  --color-steel: #697c96;
+  --color-fog: #8996a9;
+  --color-mist: #a7b1be;
+  --color-silver: #c5cbd3;
+  --color-bone: #e2e5e9;
+  --color-paper-white: #ffffff;
+  --color-copper: #cc9166;
+
+  /* Typography */
+  --font-ivy-presto: var(--font-display), ui-serif, Georgia, serif;
+  --font-inter: var(--font-inter-google), ui-sans-serif, system-ui, sans-serif;
+
+  /* Typography — Scale */
+  --text-eyebrow: 13px;
+  --leading-eyebrow: 1;
+  --tracking-eyebrow: -0.26px;
+  --text-body-xs: 16px;
+  --leading-body-xs: 1.5;
+  --text-body-sm: 18px;
+  --leading-body-sm: 1.38;
+  --tracking-body-sm: -0.36px;
+  --text-body: 20px;
+  --leading-body: 1.38;
+  --tracking-body: -0.8px;
+  --text-subheading: 24px;
+  --leading-subheading: 1;
+  --tracking-subheading: -0.31px;
+  --text-heading-sm: 44px;
+  --leading-heading-sm: 1.38;
+  --tracking-heading-sm: 0.44px;
+  --text-heading: 52px;
+  --leading-heading: 1.13;
+  --tracking-heading: 0.52px;
+  --text-heading-lg: 64px;
+  --leading-heading-lg: 1.13;
+  --tracking-heading-lg: 0.64px;
+  --text-display: 88px;
+  --leading-display: 1;
+  --tracking-display: 0.88px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-9: 9px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-22: 22px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-105: 105px;
+  --spacing-224: 224px;
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --animate-nudge: nudge 2.4s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-nudge {
+    animation: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --page-max-width: 1216px;
+  --section-gap: 160px;
+  --card-padding: 24px;
+  --element-gap: 8px;
+}
+
+body {
+  /* Two stacked lights (see design.md § Page Lighting). The halo sits behind
+     the hero copy and scrolls with the page, so it belongs to that content
+     rather than following the eye. The vignette is viewport-fixed, holding
+     the edges dark as a permanent frame. Listed glow-first because earlier
+     layers paint on top. */
+  background-color: var(--color-obsidian);
+  background-image:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 255, 255, 0.11) 0%,
+      rgba(255, 255, 255, 0.04) 35%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at 50% 45%,
+      transparent 35%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  background-size:
+    100% 900px,
+    cover;
+  background-position:
+    50% 0,
+    center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, fixed;
+  color: var(--color-bone);
+  font-family: var(--font-inter);
+}
+
+/* Design system guardrails (see design.md § Do's and Don'ts):
+   no drop shadows, copper only for category labels and editorial links,
+   the white filled pill button at most once per viewport, serif never
+   below 28px and Inter never above 20px for body copy.
+   Note: the spacing tokens above override Tailwind's size scale, so `h-4`
+   resolves to 4px — use explicit px for icon sizing. */
+
+/* No scrollbar at all, in any engine.
+
+   A native one reserves a gutter outside the viewport, and `position: fixed`
+   resolves against the viewport minus that gutter — so the cursor's light
+   cannot reach it and it reads as a dead strip down the edge of a page whose
+   background is lit. No `background: transparent` fixes that: the strip is not
+   a background, it is space the page was never given.
+
+   A replacement drawn inside the viewport worked, and was still one more line
+   on an edge that is better left empty. The page is two screens long, the
+   scroll cue points the way down, and the cursor itself shows a wheel — the
+   position of a thumb was not carrying its keep. No `scrollbar-gutter` either:
+   with no bar there is nothing to reserve, and the project wall gets those
+   pixels back to run genuinely full-bleed. */
+html {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hit target for a large cursor.
+
+   The custom mouse pointer is 33x48, so small controls became hard to aim at.
+   The clickable region is grown with a pseudo-element rather than with
+   padding: padding would push the icons apart, and the spacing between them is
+   a design decision, not slack.
+
+   `--tap` is the reach on every side. Keep it under half the gap to the next
+   control — two overlapping regions mean the one later in the DOM silently
+   swallows clicks meant for its neighbour. */
+@utility tap {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--tap, 8px));
+    border-radius: inherit;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Custom cursor and its light
+
+   The split here is the whole design. Anything large enough to cover a line of
+   text sits at z-index -1, where negative-index positioned elements paint above
+   the body background (which propagates to the viewport canvas) but below every
+   bit of normal content. From there `screen` brightens the page lighting and
+   leaves the type untouched — it lights the background instead of washing it.
+
+   Only the bright core and the mouse mark go above the content, and both are
+   deliberately too small to cover anything.
+
+   Both layers are positioned, never accumulated — see CursorLight.tsx for why
+   the trail that used to live here was cut.
+   --------------------------------------------------------------------------- */
+
+.cursor-lamp {
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  opacity: 0;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 232, 186, 0.3) 0%,
+    rgba(255, 214, 146, 0.14) 26%,
+    rgba(255, 200, 120, 0.04) 52%,
+    rgba(255, 200, 120, 0) 76%
+  );
+  transform: translate3d(-400px, -400px, 0) translate(-50%, -50%);
+}
+
+/* The bright core at the pointer: enough halo to glow, small enough that it
+   cannot wash a paragraph the way an earlier 130px disc did. */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 250, 236, 0.95) 0%,
+    rgba(255, 228, 168, 0.6) 16%,
+    rgba(255, 210, 130, 0.16) 42%,
+    rgba(255, 210, 130, 0) 70%
+  );
+  mix-blend-mode: screen;
+  transform: translate3d(-200px, -200px, 0) translate(-50%, -50%);
+}
+
+/* The native arrow is replaced, not hidden underneath. Scoped to the class the
+   component adds, so a device that never gets the custom cursor keeps its own. */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none;
+}
+
+/* The mouse that appears inside the glow over a project card. No text: a word
+   beside the cursor has to be read, and it also has to be placed, which is
+   what left it looking detached from the light. A small mark centred in the
+   glow is understood at a glance and cannot come apart from it. */
+.cursor-mouse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 62;
+  width: 33px;
+  height: 48px;
+  pointer-events: none;
+  opacity: 0;
+  color: rgba(255, 246, 226, 0.95);
+  transform: translate3d(-400px, -400px, 0);
+}
+
+.cursor-mouse svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The monogram inherits the display serif from the page, not from the SVG —
+   next/font puts the variable on <html>, and the cursor is a child of body. */
+.cursor-mouse text {
+  font-family: var(--font-ivy-presto);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-lamp,
+  .cursor-glow,
+  .cursor-mouse {
+    display: none;
+  }
+}
+
+/* The cursor's light landing on the globe. Same idea as the project cards'
+   sheen — a solid surface for the light to catch on — but scoped to the
+   sphere, which is the darkest thing on the hero.
+
+   The mask is the whole trick. A `border-radius` clip ends in a hard
+   antialiased rim, and that rim is what drew the sphere's outline onto the
+   page. The mask instead fades the light out from 40% of the radius and has
+   it gone by 92%, so it never reaches the silhouette and there is no edge to
+   give the effect away. */
+.globe-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    300px circle at var(--sx, 50%) var(--sy, 50%),
+    rgba(255, 236, 196, 0.22) 0%,
+    rgba(255, 214, 150, 0.08) 40%,
+    rgba(255, 205, 130, 0) 74%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle closest-side,
+    #000 40%,
+    rgba(0, 0, 0, 0.5) 68%,
+    transparent 92%
+  );
+  mask-image: radial-gradient(
+    circle closest-side,
+    #000 40%,
+    rgba(0, 0, 0, 0.5) 68%,
+    transparent 92%
+  );
+}
+
+/* ---------------------------------------------------------------------------
+   Project wall — focus scaling and pointer tilt
+
+   `--focus` is written per card by ProjectWall on every animation frame, so
+   there is deliberately no transition on the scale: the value already arrives
+   interpolated, and a transition would lag the scroll. `--rx`/`--ry` come from
+   the pointer and DO transition, so the plate settles when the cursor leaves.
+   --------------------------------------------------------------------------- */
+
+.project-card {
+  /* Defaults to focused so the wall renders correctly before hydration and
+     with JS off; ProjectWall overwrites it on the first frame after mount. */
+  --focus: 1;
+  transform: scale(calc(0.9 + 0.1 * var(--focus)));
+  transform-origin: center bottom;
+  opacity: calc(0.5 + 0.5 * var(--focus));
+  will-change: transform, opacity;
+}
+
+.project-plate {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  transform-style: preserve-3d;
+  transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 400ms ease;
+  cursor: pointer;
+}
+
+.project-thumb,
+.project-caption {
+  transform-style: preserve-3d;
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease;
+}
+
+.project-sheen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  background: radial-gradient(
+    420px circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.55),
+    transparent 62%
+  );
+  transition: opacity 300ms ease;
+}
+
+/* Hover-capable pointers only — on touch the plate would keep whatever angle
+   the finger lifted at. */
+@media (hover: hover) {
+  .project-plate:hover .project-thumb,
+  .project-plate:focus-visible .project-thumb {
+    transform: translateZ(34px);
+    border-color: var(--color-slate);
+  }
+  .project-plate:hover .project-caption,
+  .project-plate:focus-visible .project-caption {
+    transform: translateZ(16px);
+  }
+  .project-plate:hover .project-sheen {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Project dialog — the card's lift, continued
+
+   The panel enters on the same axis the card tilts on, so opening reads as the
+   card standing up rather than as a new surface appearing.
+   --------------------------------------------------------------------------- */
+
+.project-overlay {
+  perspective: 1600px;
+  background-color: rgba(5, 8, 13, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.project-overlay.is-open {
+  opacity: 1;
+}
+
+.project-panel {
+  transform-origin: center top;
+  transform: rotateX(9deg) translateY(28px) scale(0.94);
+  opacity: 0;
+  transition:
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease;
+}
+
+.project-overlay.is-open .project-panel {
+  transform: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    --focus: 1;
+    transform: none;
+    opacity: 1;
+  }
+  .project-panel {
+    transform: none;
+    transition: opacity 200ms ease;
+  }
+  .project-plate,
+  .project-thumb,
+  .project-caption {
+    transform: none !important;
+    transition: none;
+  }
+  .project-sheen {
+    display: none;
+  }
+}
