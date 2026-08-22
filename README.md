@@ -40,6 +40,22 @@ railway up            # or connect the GitHub repo for push-to-deploy
 railway domain        # generate a public URL
 ```
 
+### Lockfile e versao do npm
+
+A imagem de build do Railway roda **npm 10.9.x** (o que vem com o Node 22), enquanto
+o ambiente local pode estar em npm 11. As duas versoes geram `package-lock.json`
+diferentes: o npm 11 poda entradas de dependencias opcionais de outras plataformas
+(`@emnapi/core`, `@emnapi/runtime`) que o npm 10 exige, e o `npm ci` do build falha
+com `can only install packages when your package.json and package-lock.json are in sync`.
+
+O lock commitado foi gerado com npm 10 de proposito — as duas versoes o aceitam.
+Se voce rodar `npm install` com npm 11 e o lock mudar, normalize antes de dar push:
+
+```bash
+npx npm@10.9.3 install --package-lock-only
+npx npm@10.9.3 ci --dry-run   # tem que passar
+```
+
 Verify a build locally the way Railway runs it:
 
 ```bash
