@@ -23,4 +23,27 @@ Open [http://localhost:3000](http://localhost:3000) — redirects to `/pt` by de
 
 ## Deploy
 
-Deployed on [Railway](https://railway.app) via Nixpacks auto-detect (`railway.json` pins the start command).
+Deployed on [Railway](https://railway.app).
+
+- `railway.json` — Nixpacks builder, build/start commands, healthcheck, restart policy, and the watch patterns that decide when a push triggers a rebuild.
+- `nixpacks.toml` — pins Node 22 and installs devDependencies (`npm ci --include=dev`), which the build needs even with `NODE_ENV=production`.
+- `.nvmrc` — same Node version for local work.
+- `/api/health` — returns `200 {"status":"ok"}`; Railway waits on it before shifting traffic to a new deploy. It lives outside `app/[locale]/` because the proxy matcher skips `/api`, so it is not caught by the locale redirect.
+
+Railway injects `PORT`; `next start` reads it and binds `0.0.0.0` by default, so no extra flags are needed. The app reads no other environment variables.
+
+First-time setup:
+
+```bash
+railway init          # or link an existing project
+railway up            # or connect the GitHub repo for push-to-deploy
+railway domain        # generate a public URL
+```
+
+Verify a build locally the way Railway runs it:
+
+```bash
+npm ci --include=dev
+npm run build
+PORT=8080 npm run start
+```

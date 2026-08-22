@@ -1,0 +1,13 @@
+# Pins the build image so Railway does not fall back to an older Node.
+# Next 16 requires Node >= 20; 22 is the current LTS.
+providers = ["node"]
+
+[variables]
+NIXPACKS_NODE_VERSION = "22"
+NODE_ENV = "production"
+NEXT_TELEMETRY_DISABLED = "1"
+
+[phases.install]
+# `npm ci` needs devDependencies (typescript, tailwind, eslint-config-next)
+# to build, so install everything regardless of NODE_ENV=production.
+cmds = ["npm ci --include=dev"]
