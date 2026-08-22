@@ -149,7 +149,7 @@ export function ProjectDialog({
                 href={visible.link}
                 target="_blank"
                 rel="noreferrer"
-                className="flex w-fit items-center gap-8 rounded-full border border-paper-white px-20 py-10 font-inter text-[14px] font-medium text-paper-white transition-colors hover:bg-paper-white hover:text-obsidian"
+                className="flex w-fit items-center gap-8 rounded-full border border-paper-white px-20 py-10 font-inter text-ui-sm font-medium text-paper-white transition-colors hover:bg-paper-white hover:text-obsidian"
               >
                 {t("detail.link")}
                 <span aria-hidden>↗</span>

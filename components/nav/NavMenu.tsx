@@ -95,7 +95,7 @@ export function NavMenu({
         </button>
       </div>
 
-      <p className="text-center font-inter text-[13px] font-medium text-fog">
+      <p className="text-center font-inter text-ui-xs font-medium text-fog">
         {t("latest")}
       </p>
 
@@ -110,7 +110,7 @@ export function NavMenu({
           <p className="font-ivy-presto italic text-body-sm leading-body-sm text-paper-white">
             {tProjects("items." + current.slug + ".title")}
           </p>
-          <p className="font-inter text-[13px] leading-body-xs text-fog">
+          <p className="font-inter text-ui-xs leading-body-xs text-fog">
             {tProjects("items." + current.slug + ".category")}
           </p>
         </div>
@@ -137,7 +137,7 @@ export function NavMenu({
         <a
           href="#projetos"
           onClick={onClose}
-          className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-20 py-12 font-inter text-[14px] font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
+          className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-20 py-12 font-inter text-ui-sm font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
         >
           {t("archive")}
         </a>
@@ -145,13 +145,13 @@ export function NavMenu({
           <a
             href="#top"
             onClick={onClose}
-            className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-16 py-12 font-inter text-[14px] font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
+            className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-16 py-12 font-inter text-ui-sm font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
           >
             {t("about")}
           </a>
           <a
             href={"mailto:" + CONTACT_EMAIL}
-            className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-16 py-12 font-inter text-[14px] font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
+            className="flex items-center justify-center rounded-full border border-slate bg-graphite/60 px-16 py-12 font-inter text-ui-sm font-medium text-bone transition-colors hover:border-paper-white hover:text-paper-white"
           >
             {t("email")}
           </a>
@@ -161,7 +161,7 @@ export function NavMenu({
       {/* Language, not theme: the site is dark by design, so a theme toggle
           would be a switch with one position. */}
       <div className="flex items-center justify-between border-t border-graphite pt-12">
-        <p className="font-inter text-[12px] text-ash">{t("footnote")}</p>
+        <p className="font-inter text-ui-2xs text-ash">{t("footnote")}</p>
         <div className="flex items-center gap-8">
           {routing.locales.map((option) => (
             <Link
@@ -171,7 +171,7 @@ export function NavMenu({
               onClick={onClose}
               aria-current={option === locale}
               className={
-                "tap [--tap:4px] rounded-full px-10 py-6 font-inter text-[12px] font-medium uppercase transition-colors " +
+                "tap [--tap:4px] rounded-full px-10 py-6 font-inter text-ui-2xs font-medium uppercase transition-colors " +
                 (option === locale ? "text-paper-white" : "text-ash hover:text-fog")
               }
             >

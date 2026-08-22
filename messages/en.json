@@ -181,9 +181,18 @@
     "languages": {
       "label": "Languages",
       "items": [
-        { "name": "Portuguese", "level": "Fluent" },
-        { "name": "English", "level": "Advanced (C1)" },
-        { "name": "Spanish", "level": "Intermediate (B1)" }
+        {
+          "name": "Portuguese",
+          "level": "Fluent"
+        },
+        {
+          "name": "English",
+          "level": "Advanced (C1)"
+        },
+        {
+          "name": "Spanish",
+          "level": "Intermediate (B1)"
+        }
       ]
     }
   },
@@ -201,5 +210,30 @@
     "lattes": "Lattes",
     "github": "GitHub",
     "instagram": "Instagram"
+  },
+  "seo": {
+    "title": "Savio Soares",
+    "titleTemplate": "%s — Savio Soares",
+    "tagline": "Epidemiology and collective health",
+    "description": "Portfolio of Savio Soares — dentist and epidemiologist, MSc candidate in Collective Health (PPGSC/University of Brasília) and civil servant at the Health Systems Coordination of the Palmas Municipal Health Department. Work on surveillance, territorialization and health data.",
+    "ogEyebrow": "Epidemiology · Collective Health",
+    "ogSubtitle": "Dentist and epidemiologist · Palmas — TO, Brazil",
+    "jobTitle": "Epidemiologist and dentist",
+    "keywords": [
+      "Savio Soares",
+      "Savio",
+      "savio.to",
+      "savio to",
+      "Savio Soares Palmas",
+      "epidemiology",
+      "collective health",
+      "public health",
+      "health surveillance",
+      "territorialization",
+      "primary care",
+      "health data science",
+      "Brazil",
+      "Palmas"
+    ]
   }
 }

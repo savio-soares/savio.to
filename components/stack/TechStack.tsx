@@ -20,15 +20,15 @@ export function TechStack() {
 
   return (
     <MetaBlock label={t("label")}>
-      <ul className="flex flex-wrap items-center justify-center gap-8 md:justify-start">
+      <ul className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:justify-start">
         {items.map(({ key, Icon }) => (
           <li
             key={key}
-            className="flex items-center gap-8 rounded-full border border-steel px-10 py-6 font-inter text-[14px] text-bone"
+            className="flex items-center gap-6 sm:gap-8 rounded-full border border-steel px-8 py-4 sm:px-10 sm:py-6 font-inter text-tag text-bone"
           >
             {/* Explicit px: `h-4` resolves to 4px here — the design.md spacing
                 tokens override Tailwind's size scale. */}
-            <Icon className="h-[14px] w-[14px] shrink-0 text-steel" />
+            <Icon className="h-[11px] w-[11px] sm:h-[14px] sm:w-[14px] shrink-0 text-steel" />
             {t(key)}
           </li>
         ))}

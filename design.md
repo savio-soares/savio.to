@@ -35,6 +35,13 @@ and describe position in the ramp, not literal hue.
 
 ## Tokens — Typography
 
+The sizes below are the **desktop** values. The scale is fluid: each token is a
+`clamp()` that holds its listed pixel size at every viewport of 1024px and up,
+then interpolates down to a floor at 360px. The serif floor is 28px, so the
+display face never breaks the "28px and above" rule on a phone. See
+`app/globals.css` § Typography — Scale for the generated values.
+
+
 ### Ivy Presto — Display and heading serif
 Used exclusively for headings at 28px and above. The high-contrast didone strokes with hairline serifs create editorial luxury; the slight 0.01em positive tracking gives the type a printed, ledger-like feel. This serif is the primary brand signature. · `--font-ivy-presto`
 - **Substitute:** Playfair Display (in use), DM Serif Display, Libre Caslon Display

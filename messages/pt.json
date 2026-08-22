@@ -181,9 +181,18 @@
     "languages": {
       "label": "Idiomas",
       "items": [
-        { "name": "Português", "level": "Fluente" },
-        { "name": "Inglês", "level": "Avançado (C1)" },
-        { "name": "Español", "level": "Intermediário (B1)" }
+        {
+          "name": "Português",
+          "level": "Fluente"
+        },
+        {
+          "name": "Inglês",
+          "level": "Avançado (C1)"
+        },
+        {
+          "name": "Español",
+          "level": "Intermediário (B1)"
+        }
       ]
     }
   },
@@ -201,5 +210,31 @@
     "lattes": "Lattes",
     "github": "GitHub",
     "instagram": "Instagram"
+  },
+  "seo": {
+    "title": "Savio Soares",
+    "titleTemplate": "%s — Savio Soares",
+    "tagline": "Epidemiologia e saúde coletiva",
+    "description": "Portfólio de Savio Soares — cirurgião-dentista e epidemiologista, mestrando em Saúde Coletiva (PPGSC/UnB) e servidor público na Coordenação de Sistemas em Saúde da Secretaria Municipal de Saúde de Palmas. Projetos de vigilância, territorialização e dados em saúde.",
+    "ogEyebrow": "Epidemiologia · Saúde Coletiva",
+    "ogSubtitle": "Cirurgião-dentista e epidemiologista · Palmas — TO",
+    "jobTitle": "Epidemiologista e cirurgião-dentista",
+    "keywords": [
+      "Savio Soares",
+      "Savio",
+      "savio.to",
+      "savio to",
+      "Savio Soares Palmas",
+      "epidemiologia",
+      "saúde coletiva",
+      "saúde pública",
+      "vigilância em saúde",
+      "territorialização",
+      "atenção primária",
+      "ciência de dados em saúde",
+      "SUS",
+      "Palmas",
+      "Tocantins"
+    ]
   }
 }

@@ -10,11 +10,14 @@ export function TagList({
   className?: string;
 }) {
   return (
-    <ul className={"flex flex-wrap items-center gap-8 " + className}>
+    <ul className={"flex flex-wrap items-center gap-6 sm:gap-8 " + className}>
       {tags.map((tag) => (
         <li
           key={tag}
-          className="rounded-full border border-steel px-10 py-6 font-inter text-[14px] text-bone"
+          // Padding halves on phones alongside the smaller type — shrinking
+          // only the text leaves the chip the same size with more air in it.
+          // The sm: values restore design.md's Pill Tag spec from 640px up.
+          className="rounded-full border border-steel px-8 py-4 font-inter text-tag text-bone sm:px-10 sm:py-6"
         >
           {tag}
         </li>

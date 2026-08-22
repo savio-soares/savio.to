@@ -1,6 +1,7 @@
 import { GraduationCap } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 import { useTranslations } from "next-intl";
+import { profiles } from "@/content/site";
 
 // Thin-line outline marks — lucide-react dropped brand/logo icons, so
 // GitHub and Instagram are hand-drawn to match the design system's stroke style.
@@ -38,18 +39,29 @@ function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// TODO: replace with the real profile URLs
-const links: { key: "lattes" | "github" | "instagram"; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>> }[] = [
-  { key: "lattes", href: "http://lattes.cnpq.br/", Icon: GraduationCap },
-  { key: "github", href: "https://github.com/", Icon: GithubIcon },
-  { key: "instagram", href: "https://instagram.com/", Icon: InstagramIcon },
-];
+// Icons in display order. The URLs come from content/site.ts, which also feeds
+// the JSON-LD `sameAs`, so the links a visitor can click and the profiles the
+// site claims to own are the same list by construction.
+const icons: Record<"lattes" | "github" | "instagram", ComponentType<SVGProps<SVGSVGElement>>> = {
+  lattes: GraduationCap,
+  github: GithubIcon,
+  instagram: InstagramIcon,
+};
+
+const order = ["lattes", "github", "instagram"] as const;
 
 export function SocialLinks() {
   const t = useTranslations("social");
 
+  // A profile with no URL yet is dropped rather than linked somewhere generic.
+  const links = order
+    .map((key) => ({ key, href: profiles[key], Icon: icons[key] }))
+    .filter((link): link is { key: typeof order[number]; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>> } =>
+      typeof link.href === "string" && link.href.length > 0,
+    );
+
   return (
-    <div className="flex items-center justify-center gap-16">
+    <div className="flex items-center justify-center gap-20 sm:gap-16">
       {links.map(({ key, href, Icon }) => (
         <a
           key={key}
@@ -57,13 +69,15 @@ export function SocialLinks() {
           target="_blank"
           rel="noreferrer"
           aria-label={t(key)}
-          // 6px reach against a 16px gap, so the three regions stay clear of
-          // one another with room to spare.
-          className="tap [--tap:6px] flex h-[46px] w-[46px] items-center justify-center rounded-full border border-smoke bg-carbon text-silver transition-colors hover:border-paper-white hover:text-paper-white"
+          // The well halves on phones, but the tap region must not: --tap grows
+          // to 9px there so the 26px circle still presents a 44px target, and
+          // the gap widens to 20px so those regions stay clear of each other.
+          // From sm the design.md 46px well and 6px reach come back.
+          className="tap [--tap:9px] sm:[--tap:6px] flex h-[26px] w-[26px] sm:h-[46px] sm:w-[46px] items-center justify-center rounded-full border border-smoke bg-carbon text-silver transition-colors hover:border-paper-white hover:text-paper-white"
         >
           {/* Explicit px: `h-4` resolves to 4px here — the design.md spacing
               tokens override Tailwind's size scale. */}
-          <Icon className="h-[20px] w-[20px]" />
+          <Icon className="h-[13px] w-[13px] sm:h-[20px] sm:w-[20px]" />
         </a>
       ))}
     </div>

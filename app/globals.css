@@ -23,31 +23,44 @@
   --font-ivy-presto: var(--font-display), ui-serif, Georgia, serif;
   --font-inter: var(--font-inter-google), ui-sans-serif, system-ui, sans-serif;
 
-  /* Typography — Scale */
-  --text-eyebrow: 13px;
+  /* Typography — Scale
+  
+     Fluid, not fixed. Every clamp() reaches its MAX at 1024px and holds it for
+     every wider viewport, so desktop renders byte-for-byte what it did when
+     these were plain pixel values; below 1024px the size interpolates down to
+     the MIN at 360px. The min for each serif step stays at or above 28px, which
+     is the floor design.md sets for the display face.
+  
+     The middle term is written as `rem + vw` rather than pure `vw` so the scale
+     still responds to the reader's browser font-size setting. */
+  --text-ui-sm: clamp(12px, 0.7186rem + 0.3012vw, 14px);
+  --text-tag: clamp(10px, 0.4894rem + 0.6024vw, 14px);
+  --text-ui-xs: clamp(11px, 0.6197rem + 0.3012vw, 13px);
+  --text-ui-2xs: clamp(10px, 0.5208rem + 0.3012vw, 12px);
+  --text-eyebrow: clamp(11px, 0.6197rem + 0.3012vw, 13px);
   --leading-eyebrow: 1;
   --tracking-eyebrow: -0.26px;
-  --text-body-xs: 16px;
+  --text-body-xs: clamp(15px, 0.9036rem + 0.1506vw, 16px);
   --leading-body-xs: 1.5;
-  --text-body-sm: 18px;
+  --text-body-sm: clamp(16px, 0.9322rem + 0.3012vw, 18px);
   --leading-body-sm: 1.38;
   --tracking-body-sm: -0.36px;
-  --text-body: 20px;
+  --text-body: clamp(17px, 0.9608rem + 0.4518vw, 20px);
   --leading-body: 1.38;
   --tracking-body: -0.8px;
-  --text-subheading: 24px;
+  --text-subheading: clamp(19px, 1.0181rem + 0.7530vw, 24px);
   --leading-subheading: 1;
   --tracking-subheading: -0.31px;
-  --text-heading-sm: 44px;
+  --text-heading-sm: clamp(28px, 1.2078rem + 2.4096vw, 44px);
   --leading-heading-sm: 1.38;
   --tracking-heading-sm: 0.44px;
-  --text-heading: 52px;
+  --text-heading: clamp(30px, 1.1295rem + 3.3133vw, 52px);
   --leading-heading: 1.13;
   --tracking-heading: 0.52px;
-  --text-heading-lg: 64px;
+  --text-heading-lg: clamp(34px, 1.1084rem + 4.5181vw, 64px);
   --leading-heading-lg: 1.13;
   --tracking-heading-lg: 0.64px;
-  --text-display: 88px;
+  --text-display: clamp(40px, 0.8735rem + 7.2289vw, 88px);
   --leading-display: 1;
   --tracking-display: 0.88px;
 
@@ -66,8 +79,12 @@
   --spacing-32: 32px;
   --spacing-40: 40px;
   --spacing-48: 48px;
-  --spacing-105: 105px;
-  --spacing-224: 224px;
+  /* Floor is 88px, not a proportional shrink: this token is what clears the
+     fixed nav pill, which does not scale with the viewport. The pill ends
+     ~57px down on a phone (top-16 + its own height), so anything lower puts
+     the hero's first row directly under it. */
+  --spacing-105: clamp(88px, 4.9239rem + 2.5602vw, 105px);
+  --spacing-224: clamp(120px, 3.9759rem + 15.6627vw, 224px);
 
   /* Border Radius */
   --radius-sm: 2px;

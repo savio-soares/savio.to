@@ -33,10 +33,10 @@ export function FloatingNav() {
     <div
       /* `fixed` is itself a containing block, so the menu panel below can be
          absolutely positioned against this pill without a `relative`. */
-      className={`fixed top-24 z-20 flex w-fit items-center rounded-full border border-slate bg-carbon/70 backdrop-blur-md transition-all duration-300 ${
+      className={`fixed top-16 z-20 sm:top-24 flex w-fit items-center rounded-full border border-slate bg-carbon/70 backdrop-blur-md transition-all duration-300 ${
         contracted
-          ? "left-24 translate-x-0 flex-col gap-12 px-12 py-12"
-          : "left-1/2 -translate-x-1/2 flex-row gap-24 px-20 py-10"
+          ? "left-16 translate-x-0 flex-col gap-12 px-12 py-12 sm:left-24"
+          : "left-1/2 -translate-x-1/2 flex-row gap-16 px-16 py-10 sm:gap-24 sm:px-20"
       }`}
     >
       {/* Wordmark carries the display serif — the brand's signature register.
@@ -44,7 +44,10 @@ export function FloatingNav() {
       <Link
         href="/"
         aria-label={t("brand")}
-        className="font-ivy-presto text-subheading leading-subheading tracking-subheading text-paper-white"
+        // whitespace-nowrap: the pill is w-fit, so without it the wordmark
+        // breaks across two lines on a narrow phone and the pill grows into a
+        // rounded rectangle.
+        className="whitespace-nowrap font-ivy-presto text-subheading leading-subheading tracking-subheading text-paper-white"
       >
         <span className={contracted ? "inline" : "hidden"} aria-hidden>
           S

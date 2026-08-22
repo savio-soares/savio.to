@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { MapPin } from "lucide-react";
 import { FloatingNav } from "@/components/nav/FloatingNav";
 import { MetaBlock } from "@/components/bio/MetaBlock";
@@ -11,7 +12,21 @@ import { ProjectsHeading } from "@/components/case-study/ProjectsHeading";
 import { FloatingCue } from "@/components/scroll/FloatingCue";
 import { projects } from "@/content/projects";
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  // next-intl only opts a route into static rendering when every layout AND
+  // page in the tree declares the locale; setting it on the layout alone
+  // leaves this page server-rendered on demand.
+  setRequestLocale(locale);
+
+  return <HomeContent />;
+}
+
+function HomeContent() {
   const t = useTranslations("hero");
   const tProjects = useTranslations("projects");
   const tStack = useTranslations("stack");
@@ -51,7 +66,7 @@ export default function HomePage() {
                 <p className="font-inter text-body-xs leading-body-xs text-bone">
                   {t("education.primary")}
                 </p>
-                <p className="font-inter text-[14px] leading-body-xs text-fog">
+                <p className="font-inter text-ui-sm leading-body-xs text-fog">
                   {t("education.secondary")}
                 </p>
               </div>
@@ -61,7 +76,7 @@ export default function HomePage() {
                 <p className="font-inter text-body-xs leading-body-xs text-bone">
                   {t("work.primary")}
                 </p>
-                <p className="font-inter text-[14px] leading-body-xs text-fog">
+                <p className="font-inter text-ui-sm leading-body-xs text-fog">
                   {t("work.secondary")}
                 </p>
               </div>
